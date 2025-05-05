@@ -1,0 +1,14 @@
+name: Third Workflow # Name of the workflow
+on: workflow_dispatch # Trigger the workflow manually
+
+# Define the jobs that will run in this workflow
+# Each job runs in a separate environment 
+
+jobs: 
+  first-job: # Name of the job
+    runs-on: ubuntu-latest # The environment where the job will run
+    steps: # Steps to be executed in the job
+      - name: Print greeting # Step name
+        run: echo "${{toJson(github)}}"  # GitHub context variable
+     
+  

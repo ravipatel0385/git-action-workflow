@@ -1,20 +1,31 @@
 name: second-workflow # Name of the workflow
-on : workflow_dispatch # Trigger the workflow manually
 
-# Define the jobs that will run in this workflow
-jobs: 
+on: 
+  workflow_dispatch # Trigger the workflow manually
+
+jobs:
   second-job: # Name of the job
     runs-on: ubuntu-latest # The environment where the job will run
     steps: # Steps to be executed in the job
       - name: Get Code from GitHub # Step name
-        uses: actions/checkout@v4 # Action to check out the code from the repository
+        uses: actions/checkout@v4
         with: # Inputs for the action
-          node-version: 18 # Node.js version to be used         
-    
+          node-version: 18 # Node.js version to be used
+
       - name: Install Dependencies # Step name
         run: npm install # Command to install dependencies
 
       - name: Run Tests # Step name
         run: npm test # Command to run tests
 
+  third-job: # Name of the new job
+    runs-on: ubuntu-latest # The environment where the job will run
+    steps: # Steps to be executed in the job
+      - name: Get Code from GitHub # Step name
+        uses: actions/checkout@v4
 
+      - name: Build Project # Step name
+        run: npm run build # Command to build the project
+
+      - name: Deploy Application # Step name
+        run: echo "Deploying application..." # Replace with actual deployment command

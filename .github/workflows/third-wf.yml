@@ -14,3 +14,9 @@ jobs:
         id: greeting
         run: echo "greeting=$(pwsh -Command 'Write-Output "Hello from PowerShell"')" >> $GITHUB_OUTPUT
   
+  second-job: # Name of the job
+    runs-on: ubuntu-latest # The environment where the job will run
+    needs: first-job # Ensure this job runs only after first-job is complete
+    steps: # Steps to be executed in the job
+      - name: Print greeting # Step name
+        run: echo "${{ needs.first-job.outputs.greeting }}" # Command to print the output from first-job

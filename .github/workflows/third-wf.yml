@@ -24,4 +24,5 @@ jobs:
       - name: Print greeting # Step name
         run: echo "${{ needs.first-job.outputs.greeting }}" # Command to print the output from first-job
       - name: Print greeting # Step name
-        run: echo "Hello From ${{ env.MY_ENV_VAR }}" # Command to print the output from first-job
+        run: echo "Hello From $MY_ENV_VAR" # Command to print the output from first-job
+

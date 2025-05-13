@@ -3,8 +3,12 @@ on: workflow_dispatch # Trigger the workflow manually
 
 # Define the jobs that will run in this workflow
 # Each job runs in a separate environment 
+env: # Define environment variables
+  MY_ENV_VAR: "Prod" # Environment variable
+env: # Define environment variables
+  MY_ENV_VAR2: "Test" # Environment variable 
 
-jobs: 
+jobs:  
   first-job: # Name of the job
     runs-on: ubuntu-latest # The environment where the job will run
     outputs: # Define outputs for the job
@@ -20,3 +24,5 @@ jobs:
     steps: # Steps to be executed in the job
       - name: Print greeting # Step name
         run: echo "${{ needs.first-job.outputs.greeting }}" # Command to print the output from first-job
+      - name: Print greeting # Step name
+        run: echo "Hello From ${{ env.MY_ENV_VAR }}" # Command to print the output from first-job

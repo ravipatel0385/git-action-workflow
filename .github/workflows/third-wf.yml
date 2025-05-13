@@ -14,5 +14,5 @@ jobs:
         run: pwsh "${{toJson(github)}}"  # GitHub context variable
       - name: Set output variable
         id: greeting
-        run: echo "greeting=$(pwsh -Command 'Write-Output "Hello from PowerShell"')" >> $GITHUB_ENV
+        run: echo "greeting=$(pwsh -Command 'Write-Output "Hello from PowerShell"')" >> $GITHUB_OUTPUTS
   

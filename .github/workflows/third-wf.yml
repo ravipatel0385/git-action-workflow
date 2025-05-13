@@ -5,7 +5,6 @@ on: workflow_dispatch # Trigger the workflow manually
 # Each job runs in a separate environment 
 env: # Define environment variables
   MY_ENV_VAR: "Prod" # Environment variable
-env: # Define environment variables
   MY_ENV_VAR2: "Test" # Environment variable 
 
 jobs:  

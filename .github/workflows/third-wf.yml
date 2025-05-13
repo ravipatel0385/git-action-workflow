@@ -10,8 +10,6 @@ jobs:
     outputs: # Define outputs for the job
       greeting: ${{ steps.greeting.outputs.greeting }} # Output from the step
     steps: # Steps to be executed in the job
-      - name: Print greeting # Step name
-        run: pwsh "${{toJson(github)}}"  # GitHub context variable
       - name: Set output variable
         id: greeting
         run: echo "greeting=$(pwsh -Command 'Write-Output "Hello from PowerShell"')" >> $GITHUB_OUTPUT

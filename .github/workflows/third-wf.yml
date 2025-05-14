@@ -1,6 +1,8 @@
 name: Third Workflow # Name of the workflow
 on: workflow_dispatch # Trigger the workflow manually
 
+environment: Testing # Environment for the workflow
+
 # Define the jobs that will run in this workflow
 # Each job runs in a separate environment 
 env: # Define environment variables

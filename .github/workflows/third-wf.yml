@@ -1,8 +1,6 @@
 name: Third Workflow # Name of the workflow
 on: workflow_dispatch # Trigger the workflow manually
 
-environment: Testing # Environment for the workflow
-
 # Define the jobs that will run in this workflow
 # Each job runs in a separate environment 
 env: # Define environment variables
@@ -21,6 +19,9 @@ jobs:
         run: echo "greeting=$(pwsh -Command 'Write-Output "Hello from ${{env.MY_ENV_VAR}} PowerShell"')" >> $GITHUB_OUTPUT
   
   second-job: # Name of the job
+    environment: Testing
+    env:
+      TEST_PW: ${{ secrets.TEST_PW }}
     runs-on: ubuntu-latest # The environment where the job will run
     needs: first-job # Ensure this job runs only after first-job is complete
     steps: # Steps to be executed in the job

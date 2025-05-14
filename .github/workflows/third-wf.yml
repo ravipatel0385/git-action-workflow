@@ -16,7 +16,7 @@ jobs:
     steps: # Steps to be executed in the job
       - name: Set output variable
         id: greeting
-        run: echo "greeting=$(pwsh -Command 'Write-Output "Hello from PowerShell"')" >> $GITHUB_OUTPUT
+        run: echo "greeting=$(pwsh -Command 'Write-Output "Hello from ${{env.MY_ENV_VAR}} PowerShell"')" >> $GITHUB_OUTPUT
   
   second-job: # Name of the job
     runs-on: ubuntu-latest # The environment where the job will run
